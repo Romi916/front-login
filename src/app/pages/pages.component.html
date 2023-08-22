@@ -1,0 +1,54 @@
+<mat-toolbar >
+    <button mat-icon-button *ngIf="sidenav.mode === 'over' " (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+        menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+        close
+      </mat-icon>
+    </button>
+    <span>Admistrador</span>
+      
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="example-container" >
+      <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+        <img class="avatar mat-elevation-z12" src="https://simg.nicepng.com/png/small/215-2151411_back-office-admin-office-admin.png" alt="">
+        <h4 class="name">MINA CLAVERO</h4>
+        <p class="designation">carga encuesta</p>
+  
+        <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button">
+          <mat-icon>draw</mat-icon>
+          <span><a [routerLink]="['admin/adminEdit/:id']">Edit.Encuesta</a></span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>checklist rtl</mat-icon>
+          <span><a [routerLink]="['admin/adminCreate']">Encuesta</a></span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>list</mat-icon>
+          <span><a [routerLink]="['admin/adminCreate']">List.Admin</a></span>
+        </button>
+  
+          
+          <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button">
+          <mat-icon>logout</mat-icon>
+          <span><a [routerLink]="['app-root']">Cerrar sesion</a></span>
+        </button>
+  
+       
+  
+    </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <div class="content mat-elevation-z12">
+         <router-outlet></router-outlet>
+        </div>
+  
+  
+      </mat-sidenav-content>
+  </mat-sidenav-container>
